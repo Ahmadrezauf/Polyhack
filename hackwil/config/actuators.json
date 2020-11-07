@@ -1,0 +1,12 @@
+{
+    "actuators": [
+        {
+            "actuatorID": 0,
+            "actuatorType": "lock"
+        },
+        {
+            "actuatorID": 1,
+            "actuatorType": "lamp"
+        }
+    ]
+}

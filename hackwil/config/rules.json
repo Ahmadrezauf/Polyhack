@@ -1,27 +1,27 @@
 {
-   "rules":[
+   "rules": [
       {
-         "ruleID":0,
-         "conditions":[
+         "ruleID": 0,
+         "conditions": [
             {
-               "sensor":"Motion0",
-               "value":"motion",
-               "operator":"="
+               "sensor": "Motion0",
+               "value": "motion",
+               "operator": "="
             },
             {
-               "sensor":"Proximity0",
-               "value":0.5,
-               "operator":"<"
+               "sensor": "Proximity0",
+               "value": 0.5,
+               "operator": "<"
             }
          ],
-         "actions":[
+         "actions": [
             {
-               "actuator":"Lamp0",
-               "value":0.6
+               "actuator": "Lamp0",
+               "value": 0.6
             },
             {
-               "actuator":"Lock0",
-               "value":"unlocked"
+               "actuator": "Lock0",
+               "value": "unlocked"
             }
          ]
       }

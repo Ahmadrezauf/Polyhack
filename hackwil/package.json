@@ -10,9 +10,11 @@
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "express": "^4.17.1",
+    "form-data": "^3.0.0",
     "meteor-node-stubs": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "rools": "^2.2.7",
     "socket.io": "^3.0.0",
     "ws": "^7.3.1"
   },

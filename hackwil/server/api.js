@@ -6,7 +6,23 @@ app.use(express.json())
 
 app.post('/api', Meteor.bindEnvironment((req, res) => {
   console.log(req.body);
-  res.status(200).json({ message: 'Hello from Express!!!'});
+  const facts = {
+    Motion0: "motion",
+    Proximity0: 0.2
+  };
+  Meteor.call("evaluateFact", facts);
+  res.status(200).json({ message: 'Sensor data processed!'});
+}));
+
+app.post('/send_image', Meteor.bindEnvironment((req, res) => {
+  console.log("image received");
+  console.log(req.body);
+  const facts = {
+    Motion0: "motion",
+    Proximity0: 0.2
+  };
+  Meteor.call("evaluateFact", facts);
+  res.status(200).json({ message: 'Sensor data processed!'});
 }));
 
 WebApp.connectHandlers.use(app);

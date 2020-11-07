@@ -19,9 +19,14 @@ Meteor.startup(() => {
   const sensors = require("../config/sensors.json");
   sensors.sensors.forEach((sensor) => {
     console.log(sensor);
-    Meteor.call("spawnSensor", parent_dir+"/sensors/index.js", "motion");
+    Meteor.call("spawnProcess", parent_dir+"/sensors/index.js", sensor.sensorType);
   })
-  Meteor.call("spawnSensor", parent_dir+"/actuators/index.js", "door");
+  
+  const actuators = require("../config/actuators.json");
+  actuators.actuators.forEach((actuator) => {
+    console.log(actuator);
+    Meteor.call("spawnProcess", parent_dir+"/actuators/index.js", actuator.actuatorType);
+  })
   
   if (LinksCollection.find().count() === 0) {
     insertLink({

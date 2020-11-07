@@ -2,27 +2,19 @@
     "sensors": [
         {
             "sensorID": 0,
-            "sensorType": ""
+            "sensorType": "motion"
         },
         {
             "sensorID": 1,
-            "sensorType": ""
+            "sensorType": "noise"
         },
         {
             "sensorID": 2,
-            "sensorType": ""
+            "sensorType": "proximity"
         },
         {
             "sensorID": 3,
-            "sensorType": ""
-        },
-        {
-            "sensorID": 4,
-            "sensorType": ""
-        },
-        {
-            "sensorID": 5,
-            "sensorType": ""
+            "sensorType": "camera"
         }
     ]
 }

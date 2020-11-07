@@ -1,8 +1,9 @@
 const { Rools, Rule } = require('rools');
 fs = require('fs');
 
-let rawdata = fs.readFileSync('rules.json');
-let rules = JSON.parse(rawdata)['rules'];
+let rules = require('../config/rules.json').rules;
+console.log(rules)
+//let rules = JSON.parse(rawdata)['rules'];
 
 function then_func(facts, new_facts){
     for(var key in new_facts){
@@ -70,24 +71,5 @@ async function evaluate_fact(rule_base, facts) {
     await rule_base.evaluate(facts);
 }
 
-// Create rule base
-const rools = new Rools();
-create_rule_engine(rules, rools);
-
-// facts
-const facts = {
-    Motion0: "motion",
-    Proximity0: 0.2
-};
-evaluate_fact(rools, facts);
-console.log(facts)
-
-// facts
-const facts_2 = {
-    Motion0: "motion",
-    Proximity0: 0.7
-};
-evaluate_fact(rools, facts_2);
-console.log(facts_2)
-
+module.exports = { create_rule_engine, evaluate_fact } 
 
