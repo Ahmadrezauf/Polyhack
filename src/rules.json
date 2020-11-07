@@ -1,0 +1,29 @@
+{
+   "rules":[
+      {
+         "ruleID":0,
+         "conditions":[
+            {
+               "sensor":"Motion0",
+               "value":"motion",
+               "operator":"="
+            },
+            {
+               "sensor":"Proximity0",
+               "value":0.5,
+               "operator":"<"
+            }
+         ],
+         "actions":[
+            {
+               "actuator":"Lamp0",
+               "value":0.6
+            },
+            {
+               "actuator":"Lock0",
+               "value":"unlocked"
+            }
+         ]
+      }
+   ]
+}
