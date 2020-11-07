@@ -29,5 +29,11 @@ wss.on('connection', function connection(ws) {
     });
   
     ws.send('something from server');
+
+    let count = 0;
+    setInterval(()=>{
+        count += 2000;
+        ws.send(`something from server after ${count/1000} seconds`);
+    }, 2000);
   });
   

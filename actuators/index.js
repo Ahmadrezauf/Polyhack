@@ -12,3 +12,5 @@ ws.on('message', function incoming(data) {
     console.log(data);
 });
   
+// make sure the process does not terminate
+setInterval(() => {}, 1 << 30);

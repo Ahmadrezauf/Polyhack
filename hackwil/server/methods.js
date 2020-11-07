@@ -3,7 +3,7 @@
 Meteor.methods({
     'spawnSensor': (sensor_path) => {
         const { exec } = require('child_process');
-        const ls = exec(`node ${sensor_path}`, function (error, stdout, stderr) {
+        const subprocess = exec(`node ${sensor_path}`, function (error, stdout, stderr) {
             if (error) {
                 console.log(error.stack);
                 console.log('Error code: '+error.code);
@@ -13,7 +13,11 @@ Meteor.methods({
             console.log('Child Process STDERR: '+stderr);
         });
 
-        ls.on('exit', function (code) {
+        subprocess.stdout.on('data', function(data) {
+            console.log(data); 
+        });        
+
+        subprocess.on('exit', function (code) {
         console.log('Child process exited with exit code '+code);
         });
     }
