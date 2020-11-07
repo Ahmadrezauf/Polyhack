@@ -9,7 +9,7 @@ create_rule_engine(rules, rools);
 Meteor.methods({
     'spawnProcess': (sensor_path, sensor_name) => {
         const { exec } = require('child_process');
-        const subprocess = exec(`node ${sensor_path} ${sensor_name}`, function (error, stdout, stderr) {
+        const subprocess = exec(`node ${sensor_path} ${sensor_name.type} ${sensor_name.id}`, function (error, stdout, stderr) {
             if (error) {
                 console.log(error.stack);
                 console.log('Error code: '+error.code);

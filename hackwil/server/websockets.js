@@ -23,11 +23,14 @@ const wss = new WebSocket.Server({
   }
 });
 
-wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(message) {
+wss.on('connection', Meteor.bindEnvironment((ws) => {
+    ws.on('message', Meteor.bindEnvironment((message) => {
       console.log('received: %s', message);
-    });
-  
+      //Connections.upsert({"id": message}, {"id": message, "connection": ws});
+      Connections[message] = ws;
+      Connections[message].send("send to ws");
+    }));
+
     ws.send('something from server');
 
     let count = 0;
@@ -35,5 +38,5 @@ wss.on('connection', function connection(ws) {
         count += 2000;
         ws.send(`something from server after ${count/1000} seconds`);
     }, 2000);
-  });
+  }));
   

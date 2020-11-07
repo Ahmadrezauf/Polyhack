@@ -3,20 +3,22 @@ const axios = require('axios')
 var myArgs = process.argv.slice(2);
 console.log('myArgs: ', myArgs);
 
-let obj = {}
+let obj = {
+  sensorID: myArgs[1]
+}
 let count = 0;
 switch (myArgs[0]) {
   case 'motion':
-      console.log(myArgs[1], 'Something is moving.');
+      console.log(myArgs[0], 'Something is moving.');
       break;
   case 'noise':
-      console.log(myArgs[1], `What's that sound?`);
+      console.log(myArgs[0], `What's that sound?`);
       break;
   case 'proximity':
-      console.log(myArgs[1], `It is near.`);
+      console.log(myArgs[0], `It is near.`);
       break;
   case 'camera':
-      console.log(myArgs[1], `How many cars?`);
+      console.log(myArgs[0], `How many cars?`);
       break;
   default:
       console.log('Sorry, the server name is invalid.');
@@ -31,7 +33,8 @@ const sendToServer = () => {
     axios.post('http://localhost:3000/send_image', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
-        }
+        },
+        sensorID: myArgs[1]
     })
   }
   else{
