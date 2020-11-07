@@ -1,0 +1,28 @@
+{
+    "sensors": [
+        {
+            "sensorID": 0,
+            "sensorType": ""
+        },
+        {
+            "sensorID": 1,
+            "sensorType": ""
+        },
+        {
+            "sensorID": 2,
+            "sensorType": ""
+        },
+        {
+            "sensorID": 3,
+            "sensorType": ""
+        },
+        {
+            "sensorID": 4,
+            "sensorType": ""
+        },
+        {
+            "sensorID": 5,
+            "sensorType": ""
+        }
+    ]
+}
