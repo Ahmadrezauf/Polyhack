@@ -1,0 +1,6 @@
+{
+  "public": {
+    "baseURL": "https://hackwil.facetcha.com",
+    "isProduction": true
+  }
+}
