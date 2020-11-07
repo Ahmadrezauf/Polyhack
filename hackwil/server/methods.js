@@ -1,9 +1,9 @@
 
 
 Meteor.methods({
-    'spawnSensor': (sensor_path) => {
+    'spawnSensor': (sensor_path, sensor_name) => {
         const { exec } = require('child_process');
-        const subprocess = exec(`node ${sensor_path}`, function (error, stdout, stderr) {
+        const subprocess = exec(`node ${sensor_path} ${sensor_name}`, function (error, stdout, stderr) {
             if (error) {
                 console.log(error.stack);
                 console.log('Error code: '+error.code);

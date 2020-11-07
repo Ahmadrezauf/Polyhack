@@ -16,8 +16,8 @@ Meteor.startup(() => {
   const parent_dir = path.dirname(project_dir);
   console.log(parent_dir);
   // console.log(process.cwd()); // Meteor execution directory in .meteor/local
-  Meteor.call("spawnSensor", parent_dir+"/sensors/index.js");
-  Meteor.call("spawnSensor", parent_dir+"/actuators/index.js");
+  Meteor.call("spawnSensor", parent_dir+"/sensors/index.js", "motion");
+  Meteor.call("spawnSensor", parent_dir+"/actuators/index.js", "door");
   
   if (LinksCollection.find().count() === 0) {
     insertLink({
