@@ -22,21 +22,21 @@ async function run(rules) {
 
     let rools_list = [];
     for(var rule_idx in rules) {
-        rule = rules[rule_idx];
+        const rule = rules[rule_idx];
         var condition_list = [];
         var action_dict = {};
 
         // Add conditions
         for(var cond_idx in rule['conditions']){
-            condition = rule['conditions'][cond_idx];
+            const condition = rule['conditions'][cond_idx];
             // console.log(condition)
             operator = condition['operator'];
             if(operator === '='){
-                await condition_list.push((facts) => facts[condition['sensor']] === condition['value']);
+                condition_list.push((facts) => facts[condition['sensor']] === condition['value']);
                 console.log(facts[condition['sensor']] === condition['value'])
             }
             else if(operator === '<'){
-                await condition_list.push((facts) => facts[condition['sensor']] < condition['value']);
+                condition_list.push((facts) => facts[condition['sensor']] < condition['value']);
                 console.log(facts[condition['sensor']] < condition['value'])
             }
             else if(operator === '>'){
@@ -59,12 +59,9 @@ async function run(rules) {
             action_dict[action['actuator']] = action['value'];
         }
         
-        console.log(condition_list);
+        await condition_list;
 
         // Add new rule
-        kir = [];
-        kir.push(condition_list[0]);
-        kir.push(condition_list[1]);
         const rools_rule = new Rule({
             name: rule['ruleID'].toString(),
             when: condition_list,
