@@ -2,7 +2,8 @@ const { Rools, Rule } = require('rools');
 const WebSocket = require('ws');
 fs = require('fs');
 
-let rules = require('../config/rules.json').rules;
+console.log("Rules read from file:")
+let rules = require('../config/desc-rules.json').rules;
 console.log(rules)
 //let rules = JSON.parse(rawdata)['rules'];
 

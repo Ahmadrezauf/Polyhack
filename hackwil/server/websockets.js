@@ -25,7 +25,7 @@ const wss = new WebSocket.Server({
 
 wss.on('connection', Meteor.bindEnvironment((ws) => {
     ws.on('message', Meteor.bindEnvironment((message) => {
-      console.log('received: %s', message);
+      console.log('received a message in the server from actuator: %s', message);
       //Connections.upsert({"id": message}, {"id": message, "connection": ws});
       Connections[message] = ws;
       //Connections[message].send("send to ws");

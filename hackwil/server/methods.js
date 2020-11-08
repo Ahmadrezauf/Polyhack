@@ -46,6 +46,7 @@ Meteor.methods({
             Proximity0: 0.7
         };*/
         evaluate_fact(rools, facts);
+        console.log("Updated sensor/actuator values after evaluation:")
         console.log(facts)
     }
 });

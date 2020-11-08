@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 var myArgs = process.argv.slice(2);
-console.log('myArgs: ', myArgs);
+// console.log('myArgs: ', myArgs);
 
 let obj = {
   sensorID: myArgs[1],
@@ -63,7 +63,7 @@ const sendToServer = () => {
 setInterval(()=>{
     count += 1;
     count %= 229;
-    console.log(`sent ${count} messages`);
+    console.log(`sent ${count} images to the server`);
     updateObj();
     sendToServer();
 }, 1000);
