@@ -6,11 +6,8 @@ app.use(express.json())
 
 app.post('/api', Meteor.bindEnvironment((req, res) => {
   console.log(req.body);
-  const facts = {
-    Motion0: "motion",
-    Proximity0: 0.2
-  };
-  Meteor.call("evaluateFact", facts);
+  global_facts[req.body.sensorID] = req.body.sensorValue;
+  Meteor.call("evaluateFact", global_facts);
   res.status(200).json({ message: 'Sensor data processed!'});
 }));
 
