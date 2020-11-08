@@ -20,7 +20,7 @@
         "ruleID":1,
         "conditions":[
            {
-              "sensor":"Motion1",
+              "sensor":"CollarProximity0",
               "value":0.5,
               "operator":"<="
            }

@@ -14,8 +14,8 @@ ws.on('open', function open() {
 });
   
 ws.on('message', function incoming(data) {
-    console.log(data);
-    console.log(myArgs[0]) // lock or lamp
+    console.log("Recieved update in actuator:");
+    console.log(`${myArgs[0]} :${data}`);
 });
   
 // make sure the process does not terminate

@@ -1,4 +1,5 @@
 const { Rools, Rule } = require('rools');
+const WebSocket = require('ws');
 fs = require('fs');
 
 let rules = require('../config/rules.json').rules;
@@ -60,8 +61,8 @@ async function create_rule_engine(rules, rools) {
     let rools_list = [];
     for(var rule_idx in rules) {
         const rule = rules[rule_idx];
-        var condition_list = [];
-        var action_dict = {};
+        const condition_list = [];
+        const action_dict = {};
 
         // Add conditions
         for(var cond_idx in rule['conditions']){
@@ -113,7 +114,14 @@ async function create_rule_engine(rules, rools) {
 }
 
 async function evaluate_fact(rule_base, facts) {
-    await rule_base.evaluate(facts);
+    let message = await rule_base.evaluate(facts);
+    // console.log("*** Updated ***") ;
+    // console.log(message['updated']);
+    for(updated_key in message['updated']){
+        // console.log(message['updated'][updated_key]);
+        // console.log(facts[message['updated'][updated_key]]);
+        Connections[message['updated'][updated_key]].send(facts[message['updated'][updated_key]]);
+    }
 }
 
 module.exports = { create_sample_rule_engine, create_rule_engine, evaluate_fact } 

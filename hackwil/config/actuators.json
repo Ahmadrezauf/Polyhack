@@ -1,11 +1,15 @@
 {
     "actuators": [
         {
-            "actuatorID": 0,
+            "actuatorID": "CatDoor0",
             "actuatorType": "lock"
         },
         {
-            "actuatorID": 1,
+            "actuatorID": "StreetLamp0",
+            "actuatorType": "lamp"
+        },
+        {
+            "actuatorID": "FloodLight0",
             "actuatorType": "lamp"
         }
     ]

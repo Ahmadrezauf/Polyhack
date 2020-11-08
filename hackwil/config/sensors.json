@@ -1,19 +1,25 @@
 {
     "sensors": [
         {
-            "sensorID": 0,
+            "sensorID": "StreetMotion0",
             "sensorType": "motion",
             "sensorValue": 0.3,
             "sensorVariation": 0.5
         },
         {
-            "sensorID": 1,
+            "sensorID": "FloodMotion0",
+            "sensorType": "motion",
+            "sensorValue": 0.3,
+            "sensorVariation": 0.5
+        },
+        {
+            "sensorID": "FloodNoise0",
             "sensorType": "noise",
             "sensorValue": 0.5,
             "sensorVariation": 0.2
         },
         {
-            "sensorID": 2,
+            "sensorID": "CollarProximity0",
             "sensorType": "proximity",
             "sensorValue": 0.5,
             "sensorVariation": 0.2
