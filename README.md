@@ -1,7 +1,8 @@
 # Polyhack - ASUS Challenge
+![width = 300px](./preview.png)
+
 
 We're addressing the challenge of ASUS Robotics & AI Center Challenge - IoT Software Foundation for a Smart City! We provide a modular, simple, and scalable IoT with a sustainable rule engine.
-
 ### Rule set
 A set of rules is provided by the user in a user-friendly manner, for example, "If ProximitySensor1 is smaller than 0.5 then set Door1 to unlock". The rule set is translated into a JSON file that the server can work with. The translation is done via natural languange processing. This part can be extended to receive more complex inputs, or even can be extended to receive a recorded voice and can cast them into the JSON format.
 The rule set is then optimized, and the conflicts in the ruleset are resolved in an efficient manner. Optimiztion is done in two major ways:
@@ -25,3 +26,10 @@ Whenever there is an update from the sensors, the server evaluates them with reg
 ### Scalability
 
 Thanks to nodejs and the rule engine, we're not limited to the number of sensors, the number of rules, or the number of actuators
+
+### How to start the project
+
+Install the dependencies and launch the project with one line of code (in the hackwill folder):
+```
+meteor
+```
