@@ -1,10 +1,10 @@
-import { create_rule_engine, evaluate_fact } from './rules_evaluation.js';
+import { create_sample_rule_engine, create_rule_engine, evaluate_fact } from './rules_evaluation.js';
 const { Rools, Rule } = require('rools');
 let rules = require('../config/rules.json').rules;
 
 // Create rule base
 const rools = new Rools();
-create_rule_engine(rules, rools);
+create_sample_rule_engine(rools);
 
 Meteor.methods({
     'spawnProcess': (sensor_path, sensor_name) => {
@@ -28,21 +28,16 @@ Meteor.methods({
         });
     },
     'evaluateFactTest': () => {
-        // facts
+        //facts
         const facts = {
-            Motion0: "motion",
-            Proximity0: 0.2
+            StreetMotion0: "motion",
+            FloodMotion0: "motion",
+            FloodNoise0: "suspicious",
+            MuseumMotion0: "no motion",
+            CollarProximity0: 0.7
         };
         evaluate_fact(rools, facts);
         console.log(facts)
-
-        // facts
-        const facts_2 = {
-            Motion0: "motion",
-            Proximity0: 0.7
-        };
-        evaluate_fact(rools, facts_2);
-        console.log(facts_2)
     },
     'evaluateFact': (facts) => {
         // facts

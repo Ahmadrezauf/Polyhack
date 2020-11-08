@@ -11,6 +11,51 @@ function then_func(facts, new_facts){
     }
 }
 
+async function create_sample_rule_engine(rools) {
+    // Create rules
+    const rule0 = new Rule({
+        name: '0',
+        when: (facts) => facts.StreetMotion0 === 'motion',
+        then: (facts) => {
+            facts.StreetLamp0 = 1;
+        },
+        // activationGroup: rule['ruleID'].toString()
+    });
+    const rule1 = new Rule({
+        name: '1',
+        when: (facts) => facts.CollarProximity0 <= 0.5,
+        then: (facts) => {
+            facts.CatDoor0 = 'unlocked';
+        },
+        // activationGroup: rule['ruleID'].toString()
+    });
+    const rule2 = new Rule({
+        name: '2',
+        when: [
+            (facts) => facts.FloodMotion0 === 'motion',
+            (facts) => facts.FloodNoise0 === 'suspicious'
+        ],
+        then: (facts) => {
+            facts.FloodLight0 = 1;
+        },
+        // activationGroup: rule['ruleID'].toString()
+    });
+    const rule3 = new Rule({
+        name: '3',
+        when: (facts) => facts.MuseumMotion0 === 'motion',
+        then: (facts) => {
+            facts.MuseumLight0 = 1;
+            facts.MuseumLight1 = 1;
+            facts.MuseumLight2 = 1;
+            facts.MuseumLight3 = 1;
+        },
+        // activationGroup: rule['ruleID'].toString()
+    });
+    // console.log(rools_rule);
+    // rools_list.push(rools_rule);
+    await rools.register([rule0, rule1, rule2, rule3]);
+}
+
 async function create_rule_engine(rules, rools) {
     let rools_list = [];
     for(var rule_idx in rules) {
@@ -71,5 +116,5 @@ async function evaluate_fact(rule_base, facts) {
     await rule_base.evaluate(facts);
 }
 
-module.exports = { create_rule_engine, evaluate_fact } 
+module.exports = { create_sample_rule_engine, create_rule_engine, evaluate_fact } 
 
