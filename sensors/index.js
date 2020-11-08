@@ -4,17 +4,19 @@ var myArgs = process.argv.slice(2);
 console.log('myArgs: ', myArgs);
 
 let obj = {
-  sensorID: myArgs[1]
+  sensorID: myArgs[1],
+  sensorType: myArgs[0]
 }
 let count = 0;
 const updateObj = () => {
+  const sensorValue_base = myArgs[2];
+  const sensorVariation = myArgs[3];
+  const sensorValue_numeric = Math.random() * sensorVariation + parseFloat(sensorValue_base);
+  const sensorValue = sensorValue_numeric >= 0.5 ? "motion" : "no motion";
+  obj = {...obj, sensorValue};
+  
   switch (myArgs[0]) {
     case 'motion':
-        const sensorValue_base = myArgs[2];
-        const sensorVariation = myArgs[3];
-        const sensorValue_numeric = Math.random() * sensorVariation + parseFloat(sensorValue_base);
-        const sensorValue = sensorValue_numeric >= 0.5 ? "motion" : "no motion";
-        obj = {...obj, sensorValue};
         console.log(myArgs[0], 'Something is moving.');
         break;
     case 'noise':
