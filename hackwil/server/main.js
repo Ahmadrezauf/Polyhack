@@ -20,7 +20,7 @@ Meteor.startup(() => {
   const sensors = require("../config/sensors.json");
   sensors.sensors.forEach((sensor) => {
     //console.log(sensor);
-    const obj = {"type": sensor.sensorType, "id": sensor.sensorID};
+    const obj = {"type": sensor.sensorType, "id": sensor.sensorID, "value": sensor.sensorValue, "variation": sensor.sensorVariation};
     console.log(obj)
     Meteor.call("spawnProcess", parent_dir+"/sensors/index.js", obj);
   })
