@@ -3,8 +3,8 @@
         {
             "sensorID": 0,
             "sensorType": "motion",
-            "sensorValue": 0.5,
-            "sensorVariation": 0.2
+            "sensorValue": 0.3,
+            "sensorVariation": 0.5
         },
         {
             "sensorID": 1,

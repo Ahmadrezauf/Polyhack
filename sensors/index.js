@@ -7,26 +7,28 @@ let obj = {
   sensorID: myArgs[1]
 }
 let count = 0;
-switch (myArgs[0]) {
-  case 'motion':
-      const sensorValue_base = myArgs[2];
-      const sensorVariation = myArgs[3];
-      const sensorValue_numeric = Math.random() * sensorVariation + sensorValue_base;
-      const sensorValue = sensorValue_numeric >= 0.5 ? "motion" : "no motion";
-      obj = {...obj, sensorValue};
-      console.log(myArgs[0], 'Something is moving.');
-      break;
-  case 'noise':
-      console.log(myArgs[0], `What's that sound?`);
-      break;
-  case 'proximity':
-      console.log(myArgs[0], `It is near.`);
-      break;
-  case 'camera':
-      console.log(myArgs[0], `How many cars?`);
-      break;
-  default:
-      console.log('Sorry, the server name is invalid.');
+const updateObj = () => {
+  switch (myArgs[0]) {
+    case 'motion':
+        const sensorValue_base = myArgs[2];
+        const sensorVariation = myArgs[3];
+        const sensorValue_numeric = Math.random() * sensorVariation + parseFloat(sensorValue_base);
+        const sensorValue = sensorValue_numeric >= 0.5 ? "motion" : "no motion";
+        obj = {...obj, sensorValue};
+        console.log(myArgs[0], 'Something is moving.');
+        break;
+    case 'noise':
+        console.log(myArgs[0], `What's that sound?`);
+        break;
+    case 'proximity':
+        console.log(myArgs[0], `It is near.`);
+        break;
+    case 'camera':
+        console.log(myArgs[0], `How many cars?`);
+        break;
+    default:
+        console.log('Sorry, the server name is invalid.');
+  }
 }
 
 const sendToServer = () => {
@@ -60,6 +62,7 @@ setInterval(()=>{
     count += 1;
     count %= 229;
     console.log(`sent ${count} messages`);
+    updateObj();
     sendToServer();
 }, 1000);
 
