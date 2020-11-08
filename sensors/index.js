@@ -11,7 +11,8 @@ switch (myArgs[0]) {
   case 'motion':
       const sensorValue_base = myArgs[2];
       const sensorVariation = myArgs[3];
-      const sensorValue = Math.random() * sensorVariation + sensorValue_base;
+      const sensorValue_numeric = Math.random() * sensorVariation + sensorValue_base;
+      const sensorValue = sensorValue_numeric >= 0.5 ? "motion" : "no motion";
       obj = {...obj, sensorValue};
       console.log(myArgs[0], 'Something is moving.');
       break;
