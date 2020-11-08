@@ -28,7 +28,7 @@ wss.on('connection', Meteor.bindEnvironment((ws) => {
       console.log('received: %s', message);
       //Connections.upsert({"id": message}, {"id": message, "connection": ws});
       Connections[message] = ws;
-      Connections[message].send("send to ws");
+      //Connections[message].send("send to ws");
     }));
 
     ws.send('something from server');
