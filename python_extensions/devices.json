@@ -1,0 +1,4 @@
+{
+    "sensors":["FloodMotion0", "FloodNoise0", "StreetMotion0", "CollarProximity0", "MuseumMotion0"],
+    "actuators":["FloodLight0", "StreetLamp0", "CatDoor0", "MuseumLight0", "MuseumLight1", "MuseumLight2", "MuseumLight3"]
+}
